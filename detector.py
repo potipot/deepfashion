@@ -12,7 +12,7 @@ import wandb
 from icevision_detector import *
 
 
-path: Param("Training dataset path", str) = Path.home()/'Datasets/image/deepfashion/'
+path: Param("Training dataset path", str) = './datasets'
 bs: Param("Batch size", int) = 6
 log: Param("Log to wandb", bool) = True
 num_workers: Param("Number of workers to use", int) = 4
@@ -30,12 +30,12 @@ def deepfashion_dataset(
     if isinstance(root_dir, str): root_dir = Path(root_dir)
     coco_train = icedata.coco.parser(
         img_dir=root_dir / 'train',
-        annotations_file=root_dir / 'train/deepfashion2.json',
+        annotations_file='./datasets/train.json',
         mask=mask)
 
     coco_valid = icedata.coco.parser(
         img_dir=root_dir / 'validation',
-        annotations_file=root_dir / 'validation/deepfashion2.json',
+        annotations_file='./datasets/validation.json',
         mask=mask)
 
     train_records, *_ = coco_train.parse(data_splitter=SingleSplitSplitter(), autofix=autofix,
@@ -101,8 +101,8 @@ light_model = EffDetModel.load_from_checkpoint(checkpoint_path='checkpoints/d3_f
 
 trainer = pl.Trainer(
     # num_sanity_val_steps=100,  # 1000 is enough to validate on all COCO @bs=8
-    limit_train_batches=1000,
-    limit_val_batches=100,
+    # limit_train_batches=1000,
+    # limit_val_batches=100,
     gpus=1,
     logger=wandb_logger,
     callbacks=[lr_monitor, checkpoint_callback],
