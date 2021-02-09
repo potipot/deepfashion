@@ -1,0 +1,12 @@
+name: icevision_detector
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pip==20.2.0
+  - notebook=6.1.6
+  - numpy
+  - pip:
+    - -r file:requirements.txt
