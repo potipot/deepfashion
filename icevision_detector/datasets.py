@@ -25,6 +25,5 @@ def coco_dataset(
     valid_records, *_ = coco_valid.parse(data_splitter=SingleSplitSplitter(), autofix=autofix,
                                          cache_filepath=coco_root / 'valid_cache' if cache_records else None)
 
-    assert(coco_train.class_map==coco_valid.class_map), \
-        f"ClassMap for train and valid differ: {coco_train.class_map=}!={coco_valid.class_map=}"
+    assert(coco_train.class_map==coco_valid.class_map)
     return (train_records, valid_records), coco_train.class_map
