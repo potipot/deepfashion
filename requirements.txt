@@ -1,9 +1,11 @@
 ipywidgets==7.6.3
 timm==0.3.4
 icevision[all]==0.6.0b1
-git+git://github.com/potipot/pytorch-lightning@feature/5555_add_timm_support
+#redundancy needed to install [all] and dependencies
+git+https://github.com/potipot/icevision.git@confusion_matrix
+git+https://github.com/potipot/pytorch-lightning@feature/5555_add_timm_support
 icedata==0.2.0
 wandb==0.10.13
 gradio==1.5.3
-#[-v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext"] git+git://github.com/NVIDIA/apex
+#-v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" git+git://github.com/NVIDIA/apex
 
