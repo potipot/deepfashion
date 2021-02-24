@@ -23,6 +23,7 @@ sudo -Hu $myusername bash -c 'source /opt/anaconda3/bin/activate && conda init'
 printf "if [ -f ~/.bashrc ]; then\n    . ~/.bashrc\nfi\n" >> /home/$myusername/.profile
 
 # clone repo
+cd /home/$myusername/
 git clone https://github.com/potipot/deepfashion --recurse-submodules
 
 # download datasets
@@ -34,9 +35,12 @@ wget https://deepfashion2.blob.core.windows.net/deepfashion2/validation.zip
 #unzip datasets/train.zip
 
 # create conda env
-cd ~/deepfashion
+cd ../deepfashion
 conda env create -n deepfashion -f environment.yml
 
 # install nvidia apex
 conda activate deepfashion
 pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" git+https://github.com/NVIDIA/apex#egg=apex
+pip install --upgrade git+https://github.com/potipot/icevision.git@confusion_matrix
+pip install --upgrade git+https://github.com/potipot/pytorch-lightning@feature/5555_add_timm_support
+sudo chown -R $myusername /home/$myusername/deepfashion

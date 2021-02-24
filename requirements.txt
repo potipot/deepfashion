@@ -1,9 +1,8 @@
 ipywidgets==7.6.3
 timm==0.3.4
+scikit-learn==0.24.1
+omegaconf==2.0.6
 icevision[all]==0.6.0b1
-#redundancy needed to install [all] and dependencies
-git+https://github.com/potipot/icevision.git@confusion_matrix
-git+https://github.com/potipot/pytorch-lightning@feature/5555_add_timm_support
 icedata==0.2.0
 wandb==0.10.13
 gradio==1.5.3
