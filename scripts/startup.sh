@@ -26,10 +26,4 @@ printf "if [ -f ~/.bashrc ]; then\n    . ~/.bashrc\nfi\n" >> /home/$myusername/.
 cd /home/$myusername/
 git clone https://github.com/potipot/deepfashion --recurse-submodules
 
-# download datasets
-cd deepfashion/datasets
-wget https://deepfashion2.blob.core.windows.net/deepfashion2/train.zip
-wget https://deepfashion2.blob.core.windows.net/deepfashion2/validation.zip
 
-#unzip datasets/validation.zip
-#unzip datasets/train.zip
