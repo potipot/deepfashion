@@ -22,7 +22,7 @@ def accumulate(self:AvgLoss, learn):
 
 
 @patch
-def create_batch(self:DataLoader, b):
+def create_batch(self:DistributedDL, b):
     return efficientdet.dataloaders.build_train_batch(b)
 
 
