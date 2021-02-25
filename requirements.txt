@@ -2,7 +2,6 @@ ipywidgets==7.6.3
 timm==0.3.4
 scikit-learn==0.24.1
 omegaconf==2.0.6
-numpy
 icevision[all]==0.6.0b1
 icedata==0.2.0
 wandb==0.10.13
