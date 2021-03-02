@@ -1,5 +1,10 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/potipot/deepfashion/inference?filepath=inference.ipynb)
-# HOWTO
+
+![gradio-deployment](assets/screenshot.png)
+### Gradio deployment 
+https://gradio.app/g/potipot/deepfashion
+
+# howto
 to train the model you'll have to download the ds from https://github.com/switchablenorms/DeepFashion2 and place it in the `datasets/train` and `datasets/validation` directory.
 
 The label failes are already cached and should be loaded automatically - check `detector.ipynb` to make sure.
@@ -24,3 +29,4 @@ conda env create -n deepfashion -f environment.yml
 ```bash
 python detector.py
 ```
+
